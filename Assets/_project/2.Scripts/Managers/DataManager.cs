@@ -13,5 +13,8 @@ public class DataManager : ScriptableObject
     }
 
     [Header("Player")]
-    public float moveSpeed = 5f;
+    public float playerMoveSpeed = 5f;
+
+    [Header("Monster")]
+    public float monsterMoveSpeed = 3f;
 }

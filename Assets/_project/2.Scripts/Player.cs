@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
 
     private void SetSortingOrder()
     {
-        _bodyRenderer.sortingOrder = -(int)this.transform.position.y;
+        //_bodyRenderer.sortingOrder = -(int)this.transform.position.y;
     }
 
     private void Move()
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        transform.Translate(_currentDirection * DataManager.Instance.moveSpeed * Time.deltaTime);
+        transform.Translate(_currentDirection * DataManager.Instance.playerMoveSpeed * Time.deltaTime);
     }
     private void SetDirection(Vector2 _direction, KeyCode _keyCode)
     {
