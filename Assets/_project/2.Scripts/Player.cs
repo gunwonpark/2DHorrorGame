@@ -27,6 +27,12 @@ public class Player : MonoBehaviour
         Move();
         Rotate();
         DoAnimation();
+        SetSortingOrder();
+    }
+
+    private void SetSortingOrder()
+    {
+        _bodyRenderer.sortingOrder = -(int)this.transform.position.y;
     }
 
     private void Move()
