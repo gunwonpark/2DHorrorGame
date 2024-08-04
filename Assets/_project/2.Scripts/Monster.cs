@@ -10,17 +10,27 @@ public class Monster : MonoBehaviour
 
     private Vector2 _nextPos;
 
-    private void Start()
+    public void Init(Vector2 _moveMaxLimit, Vector2 _moveMinLimit)
     {
-        // 추후 다른곳에서 실행해 줘야 된다.
-        Init();
-    }
-    public void Init()
-    {
+        SetMoveLimit(_moveMinLimit, _moveMaxLimit);
+        SetTransform();
         Move();
     }
 
-    void DeActive()
+    private void SetTransform()
+    {
+        this.transform.position = GetRandomPos();
+    }
+
+    private void SetMoveLimit(Vector2 _moveMinLimit, Vector2 _moveMaxLimit)
+    {
+        maxX = _moveMaxLimit.x;
+        maxY = _moveMaxLimit.y;
+        minX = _moveMinLimit.x;
+        minY = _moveMinLimit.y;
+    }
+
+    public void DeActive()
     {
         StopAllCoroutines();
         Destroy(gameObject);

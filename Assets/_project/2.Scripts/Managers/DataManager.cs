@@ -17,4 +17,5 @@ public class DataManager : ScriptableObject
 
     [Header("Monster")]
     public float monsterMoveSpeed = 3f;
+    public Monster monsterPrefab;
 }
