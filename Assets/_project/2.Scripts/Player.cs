@@ -1,23 +1,18 @@
 using UnityEngine;
 
-public enum MoveDirection
-{
-    None = 0,
-    Up = 1,
-    Down = -1,
-    Side = 2,
-}
+
 
 public class Player : MonoBehaviour
 {
     private bool _isMove = false;
     private KeyCode _currentKeyCode = KeyCode.None;
     private Vector2 _currentDirection = Vector2.zero;
-    private Vector2 _frontDirection = Vector2.zero;
+    private Vector2 _frontDirection = Vector2.down;
 
     [SerializeField] private SpriteRenderer _bodyRenderer;
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D _rigidbody2D;
+    [SerializeField] private PlayerLight _playerLight;
 
     public void Init()
     {
@@ -134,9 +129,10 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        else
+
+        if (_playerLight != null)
         {
-            _frontDirection = _currentDirection;
+            _playerLight.RePosition(_frontDirection);
         }
     }
     private void DoAnimation()
