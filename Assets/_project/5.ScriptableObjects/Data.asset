@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f918f073704d4f44daef4ca9ca180572, type: 3}
   m_Name: Data
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  playerMoveSpeed: 5
+  monsterMoveSpeed: 3
+  monsterPrefab: {fileID: 1319163687055766670, guid: 166f2f0ef26d15f41ae1a7c44f1590ff, type: 3}
+  gameEndUI: {fileID: 5195638034515408531, guid: 212448aa376a96b4b848e8fd2856dc4e, type: 3}

@@ -17,12 +17,17 @@ public class Player : MonoBehaviour
 
     [SerializeField] private SpriteRenderer _bodyRenderer;
     [SerializeField] private Animator _animator;
+    [SerializeField] private Rigidbody2D _rigidbody2D;
 
     public void Init()
     {
     }
+    public void DeActive()
+    {
+        this.gameObject.SetActive(false);
+    }
 
-    public void Update()
+    public void FixedUpdate()
     {
         Move();
         Rotate();
@@ -66,7 +71,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        transform.Translate(_currentDirection * DataManager.Instance.playerMoveSpeed * Time.deltaTime);
+        _rigidbody2D.MovePosition(_rigidbody2D.position + _currentDirection * DataManager.Instance.playerMoveSpeed * Time.fixedDeltaTime);
     }
     private void SetDirection(Vector2 _direction, KeyCode _keyCode)
     {
@@ -156,6 +161,15 @@ public class Player : MonoBehaviour
 
 
         _animator.SetInteger("MoveDirection", (int)_moveDirection);
+    }
+
+    private void OnTriggerEnter2D(Collider2D _collision)
+    {
+        if (_collision.CompareTag("Monster"))
+        {
+            Instantiate(DataManager.Instance.gameEndUI).Init();
+            DeActive();
+        }
     }
 }
 

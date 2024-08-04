@@ -10,7 +10,7 @@ public struct MoveLimitList
     public Transform moveMinLimit;
 }
 
-public class MonsterManager : MonoBehaviour
+public class MonsterSpawner : MonoBehaviour
 {
     private List<Monster> _monsters = new List<Monster>();
     [SerializeField] private MoveLimitList[] _moveLimitList;
