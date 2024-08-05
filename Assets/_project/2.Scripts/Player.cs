@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private PlayerLight _playerLight;
 
+    private float _stepIntervalTimer = 0f;
     public void Init()
     {
     }
@@ -37,12 +38,23 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
+        _stepIntervalTimer += Time.fixedDeltaTime;
+
         if (_isMove)
         {
             if (!Input.GetKey(_currentKeyCode))
             {
                 _currentDirection = Vector2.zero;
                 _isMove = false;
+            }
+            else
+            {
+                if (_stepIntervalTimer >= DataManager.Instance.stepSFXInterval)
+                {
+                    SoundManager.Instance.PlaySfx(SfxType.Step_1);
+                    _stepIntervalTimer = 0f;
+                }
+
             }
         }
 

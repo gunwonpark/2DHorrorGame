@@ -13,6 +13,26 @@ MonoBehaviour:
   m_Name: Data
   m_EditorClassIdentifier: 
   playerMoveSpeed: 5
+  stepSFXInterval: 0.3
+  stepSfxTypes: 0a000000
   monsterMoveSpeed: 3
   monsterPrefab: {fileID: 1319163687055766670, guid: 166f2f0ef26d15f41ae1a7c44f1590ff, type: 3}
   gameEndUI: {fileID: 5195638034515408531, guid: 212448aa376a96b4b848e8fd2856dc4e, type: 3}
+  maxSfxCount: 7
+  _bgmDats:
+  - clip: {fileID: 0}
+    volume: 0
+    bgmType: 0
+  _sfxDatas:
+  - clip: {fileID: 8300000, guid: e2e630652aee2374ca2779a3805ead01, type: 3}
+    volume: 0.6
+    sfxType: 10
+  - clip: {fileID: 8300000, guid: 632ceb6ccb94e78428da454f924c5953, type: 3}
+    volume: 0.6
+    sfxType: 20
+  - clip: {fileID: 8300000, guid: 13b7ea1ecd6a3a1439e117ab086bab84, type: 3}
+    volume: 0.6
+    sfxType: 30
+  - clip: {fileID: 8300000, guid: ca978fc6b070f8249aa11ad120098594, type: 3}
+    volume: 0.6
+    sfxType: 50
